@@ -1,0 +1,152 @@
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.brand-icon {
+  font-size: 1.25rem;
+}
+
+.brand-text {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-link {
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+.nav-link.active {
+  color: var(--primary);
+  background: var(--primary-glow);
+  font-weight: 600;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+  padding-left: 14px;
+  border-left: 1px solid var(--border);
+}
+
+.user-badge {
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--primary-glow);
+  color: var(--primary);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.user-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  transition: var(--transition);
+}
+
+.user-avatar {
+  padding: 0;
+  line-height: 1;
+}
+
+.user-avatar:hover .avatar-circle {
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+}
+
+/* Email verification banner */
+.verify-bar {
+  background: #fffbeb;
+  border-bottom: 1px solid #fde68a;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #92400e;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.verify-bar-link {
+  color: white;
+  font-weight: 600;
+  padding: 4px 12px;
+  background: var(--warning);
+  border-radius: 5px;
+  font-size: 0.8rem;
+  transition: var(--transition);
+}
+
+.verify-bar-link:hover {
+  background: var(--accent-dark);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-links { gap: 1px; }
+  .nav-link { font-size: 0.8rem; padding: 6px 8px; }
+  .user-name { display: none; }
+  .user-badge { display: none; }
+  .nav-inner { padding: 0 16px; }
+}
