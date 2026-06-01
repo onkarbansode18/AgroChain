@@ -10,8 +10,8 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('agrochain_token');
-    const savedUser = localStorage.getItem('agrochain_user');
+    const token = sessionStorage.getItem('agrochain_token');
+    const savedUser = sessionStorage.getItem('agrochain_user');
     if (token && savedUser) {
       try { setUser(JSON.parse(savedUser)); } catch { /* ignore */ }
     }
@@ -19,14 +19,14 @@ export function AuthProvider({ children }) {
   }, []);
 
   const loginUser = (token, userData) => {
-    localStorage.setItem('agrochain_token', token);
-    localStorage.setItem('agrochain_user', JSON.stringify(userData));
+    sessionStorage.setItem('agrochain_token', token);
+    sessionStorage.setItem('agrochain_user', JSON.stringify(userData));
     setUser(userData);
   };
 
   const logout = () => {
-    localStorage.removeItem('agrochain_token');
-    localStorage.removeItem('agrochain_user');
+    sessionStorage.removeItem('agrochain_token');
+    sessionStorage.removeItem('agrochain_user');
     setUser(null);
   };
 

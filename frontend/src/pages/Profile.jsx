@@ -25,7 +25,7 @@ export default function Profile() {
     e.preventDefault(); setLoading(true); setMsg(null);
     try {
       await updateProfile(form);
-      loginUser(localStorage.getItem('agrochain_token'), { ...user, ...form });
+      loginUser(sessionStorage.getItem('agrochain_token'), { ...user, ...form });
       setMsg({ type: 'success', text: 'Profile updated successfully!' });
     } catch (err) {
       setMsg({ type: 'error', text: err.response?.data?.message || 'Update failed' });

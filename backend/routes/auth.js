@@ -38,12 +38,11 @@ router.post('/register', async (req, res) => {
     if (otpRecord.otp !== otp) return res.status(400).json({ message: 'Invalid OTP' });
     if (new Date() > otpRecord.expiresAt) return res.status(400).json({ message: 'OTP expired' });
     await OTP.updateOne({ _id: otpRecord._id }, { used: true });
-    const hashedPassword = await bcrypt.hash(password, 10);
     const blockchainAddress = crypto.createHash('sha256').update(email + Date.now()).digest('hex');
     const user = await User.create({
       name,
       email,
-      password: hashedPassword,
+      password,
       role: role || 'consumer',
       blockchainAddress,
       emailVerified: true,

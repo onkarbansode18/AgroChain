@@ -52,7 +52,7 @@ export default function VerifyEmail() {
       setSuccess('Email verified successfully!');
       sessionStorage.removeItem('agrochain_dev_otp');
       const updatedUser = { ...user, isEmailVerified: true };
-      loginUser(localStorage.getItem('agrochain_token'), updatedUser);
+      loginUser(sessionStorage.getItem('agrochain_token'), updatedUser);
       setTimeout(() => navigate(user?.role === 'consumer' ? '/consumer' : `/${user?.role}`), 1200);
     } catch (err) {
       setError(err.response?.data?.message || 'Verification failed. Please try again.');

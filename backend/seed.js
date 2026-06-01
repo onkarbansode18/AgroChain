@@ -25,20 +25,16 @@ const seed = async () => {
   await Dispute.deleteMany({});
 
   console.log('  🌱 Seeding database...\n');
-
-  const salt = await bcrypt.genSalt(12);
-  const hashedPw = await bcrypt.hash('password123', salt);
-
   // Create users with full real-world data
   const admin = await User.create({
-    name: 'Admin User', email: 'admin@agrochain.com', password: hashedPw,
+    name: 'Admin User', email: 'admin@agrochain.com', password: 'password123',
     role: 'admin', blockchainAddress: generateAddr('admin'),
     isVerified: true, isEmailVerified: true, phone: '9000000001',
     address: { city: 'Bhubaneswar', state: 'Odisha', pincode: '751001', country: 'India' }
   });
 
   const farmer1 = await User.create({
-    name: 'Rajesh Kumar', email: 'farmer@agrochain.com', password: hashedPw,
+    name: 'Rajesh Kumar', email: 'farmer@agrochain.com', password: 'password123',
     role: 'farmer', farmName: 'Kumar Organic Farm', farmLocation: 'Bhubaneswar, Odisha',
     farmSize: '5 acres', farmType: 'organic',
     blockchainAddress: generateAddr('farmer1'), isVerified: true, isEmailVerified: true,
@@ -48,7 +44,7 @@ const seed = async () => {
   });
 
   const farmer2 = await User.create({
-    name: 'Sunita Devi', email: 'farmer2@agrochain.com', password: hashedPw,
+    name: 'Sunita Devi', email: 'farmer2@agrochain.com', password: 'password123',
     role: 'farmer', farmName: 'Devi Natural Farm', farmLocation: 'Cuttack, Odisha',
     farmSize: '3 acres', farmType: 'organic',
     blockchainAddress: generateAddr('farmer2'), isVerified: true, isEmailVerified: true,
@@ -58,7 +54,7 @@ const seed = async () => {
   });
 
   const dist1 = await User.create({
-    name: 'Amit Patel', email: 'distributor@agrochain.com', password: hashedPw,
+    name: 'Amit Patel', email: 'distributor@agrochain.com', password: 'password123',
     role: 'distributor', businessName: 'Amit Agro Distributors',
     licenseNumber: 'DL-OD-2024-001', gstNumber: '21ABCDE1234F1Z5',
     blockchainAddress: generateAddr('dist1'), isVerified: true, isEmailVerified: true,
@@ -67,7 +63,7 @@ const seed = async () => {
   });
 
   const ret1 = await User.create({
-    name: 'Priya Sharma', email: 'retailer@agrochain.com', password: hashedPw,
+    name: 'Priya Sharma', email: 'retailer@agrochain.com', password: 'password123',
     role: 'retailer', businessName: 'FreshMart Retail Store',
     licenseNumber: 'RT-OD-2024-001', gstNumber: '21FGHIJ5678K1Z3',
     blockchainAddress: generateAddr('ret1'), isVerified: true, isEmailVerified: true,
@@ -76,7 +72,7 @@ const seed = async () => {
   });
 
   const consumer1 = await User.create({
-    name: 'Vikram Singh', email: 'consumer@agrochain.com', password: hashedPw,
+    name: 'Vikram Singh', email: 'consumer@agrochain.com', password: 'password123',
     role: 'consumer', blockchainAddress: generateAddr('consumer1'),
     isVerified: true, isEmailVerified: true, phone: '9876543214'
   });
